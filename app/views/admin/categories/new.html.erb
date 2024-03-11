@@ -1,0 +1,8 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">New category</h1>
+
+  <%= render "form", admin_category: @admin_category %>
+  <div class="mt-2">
+    <%= link_to 'Back to categories', admin_categories_path, class: 'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ms-4' %>
+  </div>
+</div>
