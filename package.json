@@ -4,10 +4,15 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.4",
+    "chart.js": "^4.4.2",
     "esbuild": "^0.20.1",
     "flowbite": "^2.3.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  },
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^4.0.4",
+    "prettier": "^3.2.5"
   }
 }

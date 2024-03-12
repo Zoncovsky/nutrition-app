@@ -9,11 +9,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <style>
+      .center-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+    </style>
   </head>
 
   <body class="bg-gradient-to-r from-cyan-500 to-lime-700">
     <%= render 'layouts/application/header' %>
-    <main class="container mx-auto mt-5 px-5 flex">
+    <main class="container mx-auto mt-5 mb-3 px-5 flex text-center center-content">
       <%= yield %>
     </main>
   </body>

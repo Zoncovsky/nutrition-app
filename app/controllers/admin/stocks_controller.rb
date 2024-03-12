@@ -2,7 +2,7 @@ class Admin::StocksController < AdminController
   before_action :set_admin_stock, only: %i[show edit update destroy]
 
   def index
-    @admin_stocks = Stock.all
+    @admin_stocks = Stock.where(product_id: params[:product_id])
   end
 
   def show;  end
