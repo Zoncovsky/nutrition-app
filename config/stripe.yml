@@ -1,0 +1,7 @@
+default: &default
+  secret_key: <%= ENV.fetch('SECRET_TOKEN') %>
+  publish_key: <%= ENV.fetch('PUBLISH_TOKEN') %>
+  webhook_secret: <%= ENV.fetch('WEBHOOK_SECRET') %>
+
+development:
+  <<: *default
