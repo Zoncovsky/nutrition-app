@@ -44,3 +44,5 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
 end
+
+gem "pagy", "~> 7.0"

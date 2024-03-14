@@ -2,7 +2,11 @@ class Admin::ProductsController < AdminController
   before_action :set_admin_product, only: %i[show edit update destroy]
 
   def index
-    @admin_products = Product.all
+    if params[:query].present?
+      @pagy, @admin_products = pagy(Product.where("name LIKE ?", "%#{params[:query]}%"))
+    else
+      @pagy, @admin_products = pagy(Product.all)
+    end
   end
 
   def show;  end
