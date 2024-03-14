@@ -1,9 +1,22 @@
 <div class="min-h-screen">
   <h1>Cart Page</h1>
   <div id="errorContainer"></div>
-  <div data-controller="cart">
-    <div class="mt-4 font-medium" id="total"></div>
-    <button class="mt-6 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white" data-action="click->cart#checkout">Checkout</button>
-    <button class="py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white" data-action="click->cart#clear">Clear Cart</button>
+  <div data-controller="cart" class="relative overflow-x-auto shadow-md sm:rounded-lg bg-gray-50">
+    <table class="w-full bg-gray-200 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 text-center">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="cartItems">
+      </tbody>
+    </table>
+    <div class="m-4 font-medium" id="total"></div>
+    <button class="m-6 py-2 px-4 bg-blue-500 hover:bg-gray-600 rounded text-white" data-action="click->cart#checkout">Checkout</button>
+    <button class="py-2 px-4 bg-red-900 hover:bg-gray-600 rounded text-white" data-action="click->cart#clear">Clear Cart</button>
   </div>
 </div>

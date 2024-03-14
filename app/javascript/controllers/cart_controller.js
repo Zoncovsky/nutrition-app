@@ -10,27 +10,44 @@ export default class extends Controller {
       return
     }
 
-    let total = 0
-    for (let i=0; i < cart.length; i++) {
-      const item = cart[i]
-      total += item.price * item.quantity
-      const div = document.createElement("div")
-      div.classList.add("mt-2")
-      div.innerText = `Item: ${item.name} - $${item.price/100.0} - Size: ${item.size} - Quantity: ${item.quantity}`
-      const deleteButton = document.createElement("button")
-      deleteButton.innerText = "Remove"
-      console.log("item.id: ", item.id)
-      deleteButton.value = JSON.stringify({id: item.id, size: item.size})
-      deleteButton.classList.add("bg-gray-500", "rounded", "text-white", "px-2", "py-1", "ml-2")
-      deleteButton.addEventListener("click", this.removeFromCart)
-      div.appendChild(deleteButton)
-      this.element.prepend(div)
-    }
+    let total = 0;
+    const cartItemsContainer = document.getElementById("cartItems");
+    cart.forEach(item => {
+      const row = document.createElement("tr");
+      const itemCell = document.createElement("td");
+      itemCell.textContent = item.name;
+      row.appendChild(itemCell);
 
-    const totalEl = document.createElement("div")
-    totalEl.innerText= `Total: $${total/100.0}`
-    let totalContainer = document.getElementById("total")
-    totalContainer.appendChild(totalEl)
+      const priceCell = document.createElement("td");
+      priceCell.textContent = `$${item.price}`;
+      row.appendChild(priceCell);
+
+      const sizeCell = document.createElement("td");
+      sizeCell.textContent = item.size;
+      row.appendChild(sizeCell);
+
+      const quantityCell = document.createElement("td");
+      quantityCell.textContent = item.quantity;
+      row.appendChild(quantityCell);
+
+      const actionsCell = document.createElement("td");
+      const deleteButton = document.createElement("button");
+      deleteButton.innerText = "Remove";
+      deleteButton.value = JSON.stringify({ id: item.id, size: item.size });
+      deleteButton.classList.add("bg-gray-500", "rounded", "text-white", "px-2", "py-1", "ml-2");
+      deleteButton.addEventListener("click", this.removeFromCart.bind(this));
+      actionsCell.appendChild(deleteButton);
+      row.appendChild(actionsCell);
+
+      cartItemsContainer.appendChild(row);
+
+      total += item.price * item.quantity;
+    });
+
+    const totalEl = document.createElement("div");
+    totalEl.innerText = `Total: $${total}`;
+    let totalContainer = document.getElementById("total");
+    totalContainer.appendChild(totalEl);
   }
 
   clear() {
@@ -81,5 +98,4 @@ export default class extends Controller {
         }
       })
   }
-
 }

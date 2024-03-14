@@ -4,6 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = { size: String, product: Object }
 
+  initialize() {
+    this.updateCartCount();
+  }
+
   addToCart() {
     console.log("product: ", this.productValue)
     const cart = localStorage.getItem("cart")
@@ -33,11 +37,27 @@ export default class extends Controller {
       })
       localStorage.setItem("cart", JSON.stringify(cartArray))
     }
+    this.updateCartCount();
   }
 
   selectSize(e) {
     this.sizeValue = e.target.value
     const selectedSizeEl = document.getElementById("selected-size") 
     selectedSizeEl.innerText = `Selected Size: ${this.sizeValue}`
+  }
+
+  updateCartCount() {
+    const cart = localStorage.getItem("cart");
+    let cartCount = 0;
+    if (cart) {
+      const cartArray = JSON.parse(cart);
+      cartArray.forEach(item => {
+        cartCount += parseInt(item.quantity);
+      });
+    }
+    const cartCountElement = document.querySelector('#cart-count');
+    if (cartCountElement) {
+      cartCountElement.textContent = cartCount.toString();
+    }
   }
 }
