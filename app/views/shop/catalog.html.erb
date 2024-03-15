@@ -1,9 +1,10 @@
+<%= link_to 'Back', root_path, class: 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center' %>
 <div class="flex flex-wrap justify-center mt-8 items-center gap-10">
   <% @main_categories.each do |category| %>
     <%= link_to category_path(category) do %>
       <div class="flex flex-col mb-4">
         <h2 class="text-gray-800 font-medium text-lg text-center mb-6"><%= category.name %></h2>
-        <%= category.image.present? ? image_tag(category.image.variant(:medium)) : image_tag("http://via.placeholder.com/512") %>
+        <%= category.image.present? ? image_tag(category.image.variant(:medium)) : image_tag('http://via.placeholder.com/512') %>
       </div>
     <% end %>
   <% end %>

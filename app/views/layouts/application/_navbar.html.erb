@@ -33,11 +33,9 @@
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse mt-2">
           <div class="hidden sm:flex sml:ml-6 items-center justify-center">
             <div class="flex space-x-10 ms-2">
-              <% if action_name == 'catalog' %>
-                <%= link_to cart_path, class: "text-gray-500 hover:underline py-2 rounded-md text-md font-medium", id: "cart-link" do %>
-                  <%= icon 'fa-solid', 'shopping-cart' %>
-                  <span id="cart-count" class="ml-1">0</span>
-                <% end %>
+              <%= link_to cart_path, class: "text-gray-500 hover:underline py-2 rounded-md text-md font-medium", id: "cart-link" do %>
+                <%= icon 'fa-solid', 'shopping-cart' %>
+                <span id="cart-count" class="ml-1">0</span>
               <% end %>
             </div>
           </div>

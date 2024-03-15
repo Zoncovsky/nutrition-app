@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
-
+  
   namespace :admin do
     resources :orders
     resources :products do
@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     end
     resources :categories
   end
-
+  
   authenticated :admin_user do
     root to: 'admin#index', as: :admin_root
   end
   
+  resources :reviews, except: [:index, :show]
   resources :categories, only: [:show]
   resources :products, only: [:show]
   
