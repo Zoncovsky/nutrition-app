@@ -1,7 +1,7 @@
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-  <a href="#">
-    #image
-  </a>
+  <% product.images.each do |image| %>
+    <%= image_tag image, class: "w-auto h-70" %>
+  <% end %>
   <div class="px-5 pb-5">
     <div id="<%= dom_id product %>">
       <p class="my-5">
@@ -21,12 +21,12 @@
 
       <p class="my-5">
         <strong class="block font-medium mb-1">Category:</strong>
-        <%= product.category_id %>
+        <%= product.category.name %>
       </p>
 
       <p class="my-5">
         <strong class="block font-medium mb-1">Active:</strong>
-        <%= product.active %>
+        <%= product.active ? 'Yes' : 'No' %>
       </p>
 
       <% if action_name != "show" %>

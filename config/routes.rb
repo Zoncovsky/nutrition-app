@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admins
+
   namespace :admin do
     resources :orders
     resources :products do
@@ -8,17 +10,17 @@ Rails.application.routes.draw do
     end
     resources :categories
   end
-  get 'admin/index'
-  devise_for :admins
-  root 'home#index'
 
   authenticated :admin_user do
     root to: 'admin#index', as: :admin_root
   end
-
+  
   resources :categories, only: [:show]
   resources :products, only: [:show]
-
+  
+  root 'home#index'
+  get 'catalog' => 'home#catalog'
+  get 'admin/index'
   get 'admin' => 'admin#index'
   get 'category' => 'category#index'
   get 'cart' => 'carts#show'

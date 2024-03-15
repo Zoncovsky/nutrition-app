@@ -54,7 +54,7 @@
               <%= s.amount %>
             </td>
             <td class="px-6 py-4">
-              $<%= s.product_id %>
+              <%= s.product.name %>
             </td>
             <td class="px-6 py-4">
               <%= link_to 'Show', admin_product_stock_path(s.product, s), class: 'font-medium text-gray-600 dark:text-blue-500 hover:underline me-2' %>
