@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :admins
 
   namespace :admin do
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   resources :products, only: [:show]
   
   root 'home#index'
-  get 'catalog' => 'home#catalog'
+  get 'catalog' => 'shop#catalog'
   get 'admin/index'
   get 'admin' => 'admin#index'
   get 'category' => 'category#index'
