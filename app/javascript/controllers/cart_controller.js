@@ -19,7 +19,7 @@ export default class extends Controller {
       row.appendChild(itemCell);
 
       const priceCell = document.createElement("td");
-      priceCell.textContent = `$${item.price}`;
+      priceCell.textContent = `$${item.price/100.0}`;
       row.appendChild(priceCell);
 
       const sizeCell = document.createElement("td");
@@ -45,7 +45,7 @@ export default class extends Controller {
     });
 
     const totalEl = document.createElement("div");
-    totalEl.innerText = `Total: $${total}`;
+    totalEl.innerText = `Total: $${total/100.0}`;
     let totalContainer = document.getElementById("total");
     totalContainer.appendChild(totalEl);
   }

@@ -8,6 +8,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
   config.server_timing = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.hosts << "df5d-188-163-98-91.ngrok-free.app"
 
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
