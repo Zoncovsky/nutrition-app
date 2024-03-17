@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :products, only: [:show]
   
   root 'home#index'
+  post 'subscribe', to: 'user#subscribe'
   get 'catalog' => 'shop#catalog'
   get 'admin/index'
   get 'admin' => 'admin#index'
