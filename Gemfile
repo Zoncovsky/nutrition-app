@@ -13,6 +13,7 @@ gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'mail'
 gem 'mailtrap', '~> 1.2', '>= 1.2.2'
+gem 'pagy', '~> 7.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
@@ -46,5 +47,3 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
 end
-
-gem "pagy", "~> 7.0"
